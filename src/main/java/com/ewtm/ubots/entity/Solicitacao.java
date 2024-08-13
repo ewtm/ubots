@@ -1,11 +1,21 @@
 package com.ewtm.ubots.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
 @Data
-public class Cartao {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Solicitacao {
 
-    private String nome;
-    private String bandeira;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String tipoSolicitacao;
+    @ManyToOne
+    private Atendente atendente;
 
 }
